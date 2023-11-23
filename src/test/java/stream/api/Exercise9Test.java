@@ -47,7 +47,6 @@ public class Exercise9Test extends ClassicOnlineStore {
                         ((StringJoiner) textCollectedTillNow).add(newString);
         BinaryOperator<Object> combiner = (textCollectedTillNow, newString) ->
                 ((StringJoiner) textCollectedTillNow).add(newString.toString());
-        ;
         Function<Object, String> finisher = Object::toString;
 
         Collector<String, ?, String> toCsv =
@@ -120,77 +119,4 @@ public class Exercise9Test extends ClassicOnlineStore {
         assertThat(itemMap.get("desk"), containsInAnyOrder("Alice"));
     }
 
-
-//    @Difficult @Test
-//    public void bitList2BitString() {
-//        String bitList = "22-24,9,42-44,11,4,46,14-17,5,2,38-40,33,50,48";
-//        class Interval implements Comparable<Interval> {
-//            int from;
-//            int to;
-//             public Interval(int from, int to) {
-//                this.from = from;
-//                this.to = to;
-//            }
-//            @Override
-//            public int compareTo(Interval t) {
-//              return Integer.compare(to, t.to);
-//            }
-//
-//            public int getFrom() {
-//                return from;
-//            }
-//
-//            public int getTo() {
-//                return to;
-//            }
-//
-//
-//        }
-//        String[] pieces = bitList.split(",");
-//        Function<String,Interval> transform2Interval =
-//                piece -> {
-//                    if (piece.contains("-")) {
-//                       String[] subpieces = piece.split("-");
-//                       return new Interval(Integer.parseInt(subpieces[0]),Integer.parseInt(subpieces[1]));
-//                    } else {
-//                       int n = Integer.parseInt(piece);
-//                       return new Interval(n,n);
-//                    }
-//                };
-//        Stream<Interval> intervalStream = Arrays.asList(pieces).stream().map(transform2Interval);
-//        int maxbit = Arrays.asList((Interval[])(intervalStream.toArray())).stream()
-//                .max(Comparator.naturalOrder())
-//                .orElse(new Interval(0,0))
-//                .getTo();
-//        /**
-//         * Create a {@link String} of "n"th bit ON.
-//         * for example
-//         * "3" will be "001"
-//         * "1,3,5" will be "10101"
-//         * "1-3" will be "111"
-//         * "7,1-3,5" will be "1110101"
-//         */
-//        Supplier<String> supplier =
-////                () ->
-////                {Ch
-////                for (int i=0;i<maxbit;i++)
-//                () -> "";
-//
-//
-//
-//        Collector<Interval, ?, String> toBitString = null;
-//        toBitString = new CollectorImpl<>(supplier, accumulator, combiner, finisher, EnumSet.of(
-//                Collector.Characteristics.CONCURRENT,
-//                Collector.Characteristics.IDENTITY_FINISH));
-//
-//
-//
-//
-//
-//        String bitString = Arrays.stream(bitList.split(",")).collect(toBitString);
-//        assertThat(bitString, is("01011000101001111000011100000000100001110111010101")
-//
-//        );
-//
-//}
 }
